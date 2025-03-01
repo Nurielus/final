@@ -1,0 +1,78 @@
+/* style.css */
+
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Skip to Main Content */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 10px;
+    background: #000;
+    color: #fff;
+    padding: 10px;
+    z-index: 100;
+    text-decoration: none;
+}
+
+.skip-link:focus {
+    top: 10px;
+}
+
+/* Навигация */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #333;
+    padding: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+nav a:hover {
+    background: #555;
+    transition: 0.3s;
+}
+
+/* Grid для галереи */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 40%);
+    gap: 20px;
+    justify-content: center;
+}
+
+.grid img {
+    width: 100%;
+    border: 3px solid #333;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+/* Flex для навигации */
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.flex-container img {
+    width: 30%;
+    border-radius: 15px;
+}
+
+/* nth-child для изображений */
+.flex-container img:nth-child(even) {
+    border-radius: 50px;
+}
