@@ -15,13 +15,26 @@
     </nav>
     <main id="main">
         <h1>Gallery</h1>
+        <div id="image" class="preview">Hover over an image below to display here.</div>
         <div class="grid">
-            <img src="image1.jpg" alt="Image 1">
-            <img src="image2.jpg" alt="Image 2">
-            <img src="image3.jpg" alt="Image 3">
-            <img src="image4.jpg" alt="Image 4">
-            <img src="image5.jpg" alt="Image 5">
+            <img src="image1.jpg" alt="Image 1" onmouseover="upDate(this)" onmouseout="undo()">
+            <img src="image2.jpg" alt="Image 2" onmouseover="upDate(this)" onmouseout="undo()">
+            <img src="image3.jpg" alt="Image 3" onmouseover="upDate(this)" onmouseout="undo()">
+            <img src="image4.jpg" alt="Image 4" onmouseover="upDate(this)" onmouseout="undo()">
+            <img src="image5.jpg" alt="Image 5" onmouseover="upDate(this)" onmouseout="undo()">
         </div>
     </main>
+    <script>
+        function upDate(previewPic) {
+            let imageDiv = document.getElementById("image");
+            imageDiv.style.backgroundImage = `url(${previewPic.src})`;  
+            imageDiv.innerText = previewPic.alt; 
+        }
+        function undo() {
+            let imageDiv = document.getElementById("image");
+            imageDiv.style.backgroundImage = "none";  
+            imageDiv.innerText = "Hover over an image below to display here.";  
+        }
+    </script>
 </body>
 </html>
