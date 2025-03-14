@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery</title>
+    <title>Interactive Photo Gallery</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onload="initializeGallery()">
     <a href="#main" class="skip-link">Skip to Main Content</a>
     <nav>
         <a href="index.html">Home</a>
@@ -17,11 +17,24 @@
         <h1>Gallery</h1>
         <div id="image" class="preview">Hover over an image below to display here.</div>
         <div class="grid">
-            <img src="image1.jpg" alt="Image 1" onmouseover="upDate(this)" onmouseout="undo()">
-            <img src="image2.jpg" alt="Image 2" onmouseover="upDate(this)" onmouseout="undo()">
-            <img src="image3.jpg" alt="Image 3" onmouseover="upDate(this)" onmouseout="undo()">
-            <img src="image4.jpg" alt="Image 4" onmouseover="upDate(this)" onmouseout="undo()">
-            <img src="image5.jpg" alt="Image 5" onmouseover="upDate(this)" onmouseout="undo()">
+            <figure>
+                <img src="image1.jpg" alt="Beautiful sunset over the mountains" onmouseover="upDate(this)" onmouseleave="undo()" onfocus="upDate(this)" onblur="undo()">
+            </figure>
+            <figure>
+                <img src="image2.jpg" alt="Serene lake surrounded by trees" onmouseover="upDate(this)" onmouseleave="undo()" onfocus="upDate(this)" onblur="undo()">
+            </figure>
+            <figure>
+                <img src="image3.jpg" alt="City skyline at night with glowing lights" onmouseover="upDate(this)" onmouseleave="undo()" onfocus="upDate(this)" onblur="undo()">
+            </figure>
+            <figure>
+                <img src="image4.jpg" alt="Golden wheat field under blue sky" onmouseover="upDate(this)" onmouseleave="undo()" onfocus="upDate(this)" onblur="undo()">
+            </figure>
+            <figure>
+                <img src="image5.jpg" alt="Snow-covered mountains in winter" onmouseover="upDate(this)" onmouseleave="undo()" onfocus="upDate(this)" onblur="undo()">
+            </figure>
+            <figure>
+                <img src="image6.jpg" alt="Vibrant flowers in a spring garden" onmouseover="upDate(this)" onmouseleave="undo()" onfocus="upDate(this)" onblur="undo()">
+            </figure>
         </div>
     </main>
 
@@ -36,6 +49,14 @@
             let imageDiv = document.getElementById("image");
             imageDiv.style.backgroundImage = "none";  
             imageDiv.innerText = "Hover over an image below to display here.";  
+        }
+
+        function initializeGallery() {
+            console.log("Gallery initialized");
+            let images = document.querySelectorAll(".grid img");
+            images.forEach(img => {
+                img.setAttribute("tabindex", "0");
+            });
         }
     </script>
 </body>
