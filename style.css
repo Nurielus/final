@@ -1,46 +1,74 @@
 body {
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
     text-align: center;
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 20px;
 }
 
-div {
-    width: 90vw; 
-    margin: 10px;
+figure {
+    background-color: white;
     padding: 20px;
-    background-color: lightblue;
+    border: 2px solid #ccc;
     text-align: center;
+    border-radius: 10px;
 }
 
 img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
 }
 
 @media (min-width: 772px) {
     .container {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    div {
-        width: 45vw; 
-        display: inline-block;
+    figure {
+        border-radius: 50%; /* Circular shape */
     }
 
-    img {
-        max-height: 30vh; 
+    figure:last-child {
+        grid-column: span 2; /* Last figure spans both columns */
     }
 }
 
-@media (min-width: 998px) {
-    div {
-        width: 30vw;  
+@media (min-width: 992px) {
+    .container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    figure {
+        border-radius: 0; /* Remove circular shape */
+    }
+
+    figure:nth-child(3n) {
+        grid-column: span 2; /* Every 3rd figure spans both columns */
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto; /* Disable smooth scrolling */
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #222;
+        color: #f4d03f; /* Yellowish text */
+    }
+
+    figure {
+        background-color: #333;
+        color: #f4d03f;
+        border: 2px solid black;
     }
 }
